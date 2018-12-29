@@ -1,0 +1,6 @@
+
+Todo:
+  ☐ Detect a cycle in linked list . Note that the head pointer may be  null if the list ia empty.
+    # check if head is null  return false
+    # create a property call fast and slow  and  make them point to the head node;
+    #  so while both properties are not null check to see if the node attribute collide else return false
