@@ -2,6 +2,12 @@ class Queue {
     constructor() {
         var head = null;
     }
+    node(value){
+        return  {
+            data: value,
+            next: null
+        };
+    }
 
     isEmpty() {
         return this.head == null;
@@ -17,10 +23,7 @@ class Queue {
     }
 
     append(value) {
-        var newNode = {
-            data: value,
-            next: null
-        };
+        var newNode = this.node(value)
 
         if (this.isEmpty()) {
             this.head = newNode;
@@ -34,24 +37,24 @@ class Queue {
 
     }
 
-    remove(){
+    remove() {
         if (this.isEmpty()) {
             return null;
         }
-        if (this.head !== null  ) {
-            this.head =  this.head.next;
+        if (this.head !== null) {
+            this.head = this.head.next;
         }
     }
 
 }
 
 
-class Stack{
-    constructor(){
+class Stack {
+    constructor() {
         var top = null;
     }
 
-    isEmpty(){
+    isEmpty() {
         return this.top == null;
     }
 
@@ -64,7 +67,7 @@ class Stack{
         }
     }
 
-    prepend(value){
+    prepend(value) {
 
         var newNode = {
             data: value,
@@ -76,14 +79,42 @@ class Stack{
             return;
         }
 
-        this.top =  newNode ;
+        this.top = newNode;
 
     }
 
-    remove(){
+    remove() {
         if (this.isEmpty()) {
             return null;
         }
         this.top = this.top.next;
     }
 }
+
+
+
+
+
+class hasCycle extends Queue {
+    constructor() {
+        super();
+        this.hasCycleBoolean = () => {
+            if (this.isEmpty()) {
+                return false;
+            }
+            this.node.fast = this.head.next;
+            this.node.slow = this.head;
+            
+            while (this.node.fast !== null && this.node.fast.next !== null && this.node.slow !== null) {
+                if (this.node.fast === this.node.slow ) {
+                    return true;
+                }
+                this.node.fast = this.node.fast.next.next;
+                this.node.slow = this.node.slow.next;
+            }
+            return false;
+        }
+    }
+};
+
+

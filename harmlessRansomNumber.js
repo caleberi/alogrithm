@@ -8,7 +8,7 @@ function harmlessRansomNumber(noteText,magazineText){
         if(!hashTable[word]){
             hashTable[word]  =  0;
         }
-        hashTable[word] += 1; 
+        hashTable[word] += 1;
     });
 
    var noteIsPossible =  true;
